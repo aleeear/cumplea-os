@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Una sorpresa para el cumpleañero más lindo ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd1dc, #fff0f5, #ffe4ec);
+            color: #444;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* CORAZONES */
+
+        .corazon {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: subir 7s linear infinite;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .c1 { left: 10%; animation-delay: 0s; }
+        .c2 { left: 25%; animation-delay: 2s; }
+        .c3 { left: 45%; animation-delay: 4s; }
+        .c4 { left: 65%; animation-delay: 1s; }
+        .c5 { left: 85%; animation-delay: 3s; }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        /* PORTADA */
+
+        .portada {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .portada h1 {
+            color: #e84368;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .portada p {
+            font-size: 20px;
+        }
+
+        /* REGALO */
+
+        .regalo {
+            position: relative;
+            width: 180px;
+            height: 150px;
+            margin: 50px auto 30px;
+            cursor: pointer;
+        }
+
+        .caja {
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            height: 120px;
+            background: #ff6f91;
+            border-radius: 5px;
+        }
+
+        .caja::before {
+            content: "";
+            position: absolute;
+            left: 75px;
+            width: 30px;
+            height: 120px;
+            background: #ffd166;
+        }
+
+        .tapa {
+            position: absolute;
+            top: 15px;
+            left: -10px;
+            width: 200px;
+            height: 40px;
+            background: #ff4f7b;
+            border-radius: 5px;
+            transition: 1s;
+        }
+
+        .tapa::before {
+            content: "";
+            position: absolute;
+            left: 85px;
+            width: 30px;
+            height: 40px;
+            background: #ffd166;
+        }
+
+        .regalo:hover .tapa {
+            transform: translateY(-60px) rotate(-5deg);
+        }
+
+        .moño {
+            position: absolute;
+            top: -20px;
+            left: 55px;
+            font-size: 60px;
+            z-index: 2;
+        }
+
+        .instruccion {
+            color: #e84368;
+            font-weight: bold;
+            animation: aparecer 2s infinite alternate;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0.5;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* CONTENIDO */
+
+        .contenido {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .carta {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+
+        .carta h2 {
+            color: #e84368;
+            font-size: 32px;
+        }
+
+        .carta p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* FOTOS */
+
+        .fotos {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .foto {
+            width: 240px;
+            height: 280px;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
+        }
+
+        .foto:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .foto:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+
+        .foto img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .foto p {
+            margin: 10px;
+            color: #e84368;
+            font-weight: bold;
+        }
+
+        /* BOTON */
+
+        button {
+            background: #e84368;
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            background: #c92f52;
+            transform: scale(1.05);
+        }
+
+        #sorpresa {
+            display: none;
+            background: white;
+            padding: 30px;
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        #sorpresa h2 {
+            color: #e84368;
+        }
+
+        /* FINAL */
+
+        .final {
+            background: #ff6f91;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .final h2 {
+            font-size: 30px;
+        }
+
+        .final p {
+            font-size: 18px;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            .portada h1 {
+                font-size: 32px;
+            }
+
+            .carta {
+                padding: 25px;
+            }
+
+            .carta p {
+                font-size: 16px;
+            }
+
+            .foto {
+                width: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- CORAZONES -->
+
+    <div class="corazon c1">❤️</div>
+    <div class="corazon c2">💕</div>
+    <div class="corazon c3">💗</div>
+    <div class="corazon c4">❤️</div>
+    <div class="corazon c5">💖</div>
+
+
+    <!-- PORTADA -->
+
+    <section class="portada">
+
+        <h1>🎂 ¡Feliz Cumpleaños! 🎂</h1>
+
+        <p>
+            Tengo una pequeña sorpresa preparada para ti ❤️
+        </p>
+
+        <div class="regalo" onclick="abrirRegalo()">
+
+            <div class="moño">🎀</div>
+
+            <div class="tapa"></div>
+
+            <div class="caja"></div>
+
+        </div>
+
+        <p class="instruccion">
+            🎁 Haz clic en el regalo 🎁
+        </p>
+
+    </section>
+
+
+    <!-- CONTENIDO -->
+
+    <div class="contenido">
+
+        <div class="carta">
+
+            <h2>💌 Para ti</h2>
+
+            <p>
+                Hoy es un día muy especial porque celebramos tu cumpleaños.
+                Quiero aprovechar este momento para desearte todo lo bonito
+                que la vida pueda ofrecerte.
+            </p>
+
+            <p>
+                Espero que este nuevo año esté lleno de alegrías,
+                nuevas experiencias, sueños cumplidos y muchísimos
+                momentos que puedas recordar con una sonrisa mi vida.
+            </p>
+
+            <p>
+                Gracias por cada conversación, cada risa y cada recuerdo
+                que hemos compartido. ❤️
+            </p>
+
+            <p>
+                Deseo que disfrutes muchísimo tu día y que puedas sentir
+                todo el cariño de las personas que te quieren.
+            </p>
+
+            <h2>
+                ❤️ ¡Feliz cumpleaños mi negrito! ❤️
+            </h2>
+
+        </div>
+
+
+        <!-- FOTOS -->
+
+        <h2>📸 Algunos recuerdos</h2>
+
+        <div class="fotos">
+
+            <div class="foto">
+
+                <!-- CAMBIA foto1.jpg POR TU FOTO -->
+
+                <img src="foto1.jpg">
+
+                <p>Un recuerdo especial ❤️</p>
+
+            </div>
+
+
+            <div class="foto">
+
+                <!-- CAMBIA foto2.jpg POR TU FOTO -->
+
+                <img src="foto2.jpg">
+
+                <p>Un momento bonito 💕</p>
+
+            </div>
+
+
+            <div class="foto">
+
+                <!-- CAMBIA foto3.jpg POR TU FOTO -->
+
+                <img src="foto3.jpg">
+
+                <p>Otro recuerdo </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTON SORPRESA -->
+
+        <button onclick="mostrarSorpresa()">
+            💗 Abrir mi mensaje secreto 💗
+        </button>
+
+
+        <div id="sorpresa">
+
+            <h2>✨ Una última cosita ✨</h2>
+
+            <p>
+                Espero que este pequeño detalle te haya sacado una sonrisa.
+            </p>
+
+            <p>
+                Hoy la distancia nos separa en lo físico, pero mi corazón
+                siempre te lleva presente a cada lugar que voy, Te amo 
+                agus de mi corazón. Que seas feliz siempre.
+ 
+            </p>
+
+            <h2>🎉🎂❤️</h2>
+
+            <p>
+                <strong>
+                    ¡Feliz cumpleaños amorrrrr! 
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <footer class="final">
+
+        <h2>🎂 Feliz cumpleaños 🎂</h2>
+
+        <p>
+            Hecho especialmente para ti mi negro bello ❤️
+        </p>
+
+        <p>
+            Con mucho cariño de ari💕
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function abrirRegalo() {
+
+            alert("🎁 ¡Sorpresa! Espero que te guste ❤️");
+
+        }
+
+
+        function mostrarSorpresa() {
+
+            document.getElementById("sorpresa").style.display = "block";
+
+            window.scrollTo({
+                top: document.getElementById("sorpresa").offsetTop,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
